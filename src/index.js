@@ -1,46 +1,49 @@
-import menuDis from './menu.js';
-import contactDis from './contact.js';
+import menuDis from './menu';
+import contactDis from './contact';
+import homeDis from './home';
 
 const content = document.getElementById('content');
 
-export const navs = () => {
-  const navContainer = document.createElement('div');
-  const home = document.createElement('p');
-  const menu = document.createElement('p');
-  const contact = document.createElement('p');
+//selectors
+const navCont = document.createElement('div');
+const homeBtn = document.createElement('p');
+const menuBtn = document.createElement('p');
+const contactBtn = document.createElement('p');
 
-  home.innerHTML = '<a href="#">Home</a>';
-  menu.innerHTML = '<a href="#">Menu </a>';
-  contact.innerHTML = '<a href="#">Contact </a>';
+const mainCont = document.createElement('div');
+const paras = document.createElement('p');
 
-  navContainer.appendChild(home);
-  navContainer.appendChild(menu);
-  navContainer.appendChild(contact);
+//styles
+navCont.style =
+  'display: flex; justify-content: space-around; font-size: 2rem;';
 
-  content.appendChild(navContainer);
+mainCont.style =
+  'border: 1px solid; height: 50vh; width: 40vw; margin: 0 auto;';
+mainCont.appendChild(paras);
 
-  // styles
+homeBtn.innerHTML = 'Home';
+menuBtn.innerHTML = 'Menu';
+contactBtn.innerHTML = 'Contact';
 
-  navContainer.style =
-    'display: flex; justify-content: space-around; width: 90vw; margin: 0 auto;';
-  home.addEventListener('click', () => {
-    alert('Welcome to home!');
-  });
+const navs = (test) => {
+  navCont.appendChild(homeBtn);
+  navCont.appendChild(menuBtn);
+  navCont.appendChild(contactBtn);
 
-  menu.addEventListener('click', menuDis);
-  contact.addEventListener('click', contactDis);
+  content.appendChild(navCont);
+  content.appendChild(mainCont);
 };
 
-export const display = (text) => {
-  const mainContent = document.createElement('div');
-  const para = document.createElement('p');
-  para.innerHTML = text;
-  mainContent.style =
-    'width: 802px; height: 70vh; border: 1px solid; margin: 0 auto; margin-top: 50px;';
-
-  mainContent.appendChild(para);
-  content.appendChild(mainContent);
+const display = (text) => {
+  return (paras.innerHTML = text);
 };
 
 navs();
-display('Lorem ipsum --Home');
+display('Lorem ipsum --Home!');
+
+//listeners
+homeBtn.addEventListener('click', homeDis);
+menuBtn.addEventListener('click', menuDis);
+contactBtn.addEventListener('click', contactDis);
+
+export default display;
