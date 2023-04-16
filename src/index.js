@@ -25,7 +25,7 @@ homeBtn.innerHTML = 'Home';
 menuBtn.innerHTML = 'Menu';
 contactBtn.innerHTML = 'Contact';
 
-const navs = (test) => {
+const navs = () => {
   navCont.appendChild(homeBtn);
   navCont.appendChild(menuBtn);
   navCont.appendChild(contactBtn);
